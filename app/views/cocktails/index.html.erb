@@ -1,8 +1,23 @@
-<h1>Cocktail Page</h1>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "banner" %>');">
+  <div class="banner-content">
+    <h1>My Cocktail Bar</h1>
+    <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+  </div>
+</div>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li><%= link_to cocktail.name, cocktail_path(cocktail)%></li>
-  <% end %>
-</ul>
-<%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "long_island" %>');">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <ul>
+              <li><%= link_to cocktail.name, cocktail_path(cocktail)%></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
